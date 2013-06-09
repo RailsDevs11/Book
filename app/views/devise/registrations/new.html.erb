@@ -9,6 +9,16 @@
           <div class="head">
             <h4>Be a part of book-business</h4>
           </div>
+          <div class="social" style="text-align: center;">
+            <% ["facebook", "google"].each do |provider| %>
+              <%= link_to image_tag("#{provider}.png", :style => "margin:2px;"), "/auth/#{provider}" %>
+            <% end %>
+            <div class="division">
+              <hr class="left">
+              <span>or</span>
+              <hr class="right">
+            </div>
+          </div>   
           <div class="form">
             <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
               <%= f.text_field :first_name, :placeholder => "First Name" %>

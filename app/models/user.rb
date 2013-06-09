@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   validates :terms_of_service, :on => :create, :acceptance => true
   validates :username, :allow_blank => true, :uniqueness => true, :format => { :with => /^[\w]{4,}$/, :message => "should at-least contain 4 valid characters" }
 
+  has_many :authentications, :dependent => :delete_all
+  
   #by default devise provides login with email
   #If also need to login with username then need to overrides this method
   def self.find_first_by_auth_conditions(warden_conditions)
@@ -34,6 +36,23 @@ class User < ActiveRecord::Base
   #Fetch the full name of the user
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def apply_omniauth(auth)
+    # In previous omniauth, 'user_info' was used in place of 'raw_info'
+    if auth['provider'] == 'facebook'
+      self.email = auth['extra']['raw_info']['email']
+      self.first_name = auth['extra']['raw_info']['first_name']
+      self.last_name = auth['extra']['raw_info']['last_name']
+      self.address = auth['extra']['raw_info']['location']['name'] if auth['extra']['raw_info']['location'].present?
+    else
+      self.email = auth['info']['email']
+      self.first_name = auth['info']['first_name']
+      self.last_name = auth['info']['last_name']
+      self.address = auth['info']['location'] if auth['info']['location'].present?
+    end
+    # saving fb info into db
+    authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
   end
   
 end
