@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130065425) do
+ActiveRecord::Schema.define(:version => 20130612213138) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "book_details", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "isbn_number"
+    t.text     "description"
+    t.float    "price"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "avatar"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

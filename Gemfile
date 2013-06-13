@@ -23,8 +23,12 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl', '~> 4.1'
   gem 'factory_girl_rails'
-  gem 'debugger'
+  #gem 'debugger'
+  gem 'therubyracer'
 end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.2.1.1'
+gem 'carrierwave'
+gem "rmagick"
+gem 'will_paginate-bootstrap'

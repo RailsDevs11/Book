@@ -41,4 +41,8 @@ module ApplicationHelper
   def truncate_string(str , length)
     return str.truncate(length, :separator => '...') rescue ''
   end
+
+  def book_details_count
+    BookDetail.all.count
+  end  
 end

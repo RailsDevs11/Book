@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates :username, :allow_blank => true, :uniqueness => true, :format => { :with => /^[\w]{4,}$/, :message => "should at-least contain 4 valid characters" }
 
   has_many :authentications, :dependent => :delete_all
+  has_many :book_details, :dependent => :destroy
   
   #by default devise provides login with email
   #If also need to login with username then need to overrides this method
