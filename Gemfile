@@ -23,7 +23,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl', '~> 4.1'
   gem 'factory_girl_rails'
-  #gem 'debugger'
+  gem 'debugger'
   gem 'therubyracer'
 end
 
