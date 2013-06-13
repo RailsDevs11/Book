@@ -5,6 +5,7 @@ Book::Application.routes.draw do
   namespace 'user' do
     resources 'dashboard', :only => [:index]
     resource 'profile', :only => [:show, :destroy]
+    resources :book_details
   end
 
   match '/auth/:provider/callback', :to => 'authentications#create'
