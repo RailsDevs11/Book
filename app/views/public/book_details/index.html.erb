@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10 offset1">
+      <div class="widget-box">
+        <div class="widget-title">
+          <span class="icon">
+            <i class="icon-refresh"></i>
+          </span> 
+          <h5>All book_details</h5>
+        </div>
+        <div class="widget-content nopadding updates">
+          <% @book_details.each do |book_detail| %>
+            <div class="new-update clearfix">
+              <%= image_tag(book_detail.avatar_url(:thumb), :style => "float: left; margin-right: 20px; height: 40px;")%>
+              <span class="update-done">                    
+                <a href="<%= public_book_detail_path(book_detail) %>" title=""><strong><%= book_detail.title %></strong></a>
+                <span><%= book_detail.description %></span>
+              </span>
+              <span class="update-date"><span class="update-day"><%= day_format(book_detail.created_at) %></span><%= month_format(book_detail.created_at) %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

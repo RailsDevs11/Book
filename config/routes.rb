@@ -8,6 +8,14 @@ Book::Application.routes.draw do
     resources :book_details
   end
 
+  namespace 'public' do
+    resources :book_details do 
+      member do
+        post :buy_book
+      end
+    end
+  end
+  
   match '/auth/:provider/callback', :to => 'authentications#create'
   match '/auth/failure', :to => 'authentications#failure'
   match '/auth/facebook/logout' => 'authentications#facebook_logout', :as => :facebook_logout

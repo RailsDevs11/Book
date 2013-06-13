@@ -38,10 +38,10 @@
       <%= link_to '<i class="icon icon-file"></i><span>My Books</span>'.html_safe, user_book_details_path %>
     </li>
     <li>
-      <%= link_to '<i class="icon icon-file"></i><span>Public Page</span>'.html_safe, book_details_path %>
+      <%= link_to '<i class="icon icon-file"></i><span>Public Page</span>'.html_safe, public_book_details_path %>
     </li>
     <li>
-      <%= link_to '<i class="icon icon-file"></i><span>Delete Account</span>'.html_safe, "#" %>
+      <%= link_to '<i class="icon icon-file"></i><span>Delete Account</span>'.html_safe, user_profile_path, :method => :delete, :confirm => "Are you sure to delete your account?" %>
     </li>
   </ul>
 </div>

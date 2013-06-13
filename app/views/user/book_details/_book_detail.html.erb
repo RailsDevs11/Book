@@ -21,16 +21,6 @@
 <div class="widget-content">
   <div class="row row-size margin_from_top">
     <div class="span2 offset1" style="text-align:left">
-      <span style="font-weight:bold">User Name</span>
-    </div>
-    <div class="span2">
-      <%= @book_detail.user.full_name rescue "" %>
-    </div>
-  </div>
-</div>
-<div class="widget-content">
-  <div class="row row-size margin_from_top">
-    <div class="span2 offset1" style="text-align:left">
       <span style="font-weight:bold">ISBN Number</span>
     </div>
     <div class="span2">
@@ -64,7 +54,7 @@
       <span style="font-weight:bold">Image</span>
     </div>
     <div class="span2">
-      <%= image_tag(@book_detail.avatar_url) %>
+      <%= image_tag(@book_detail.avatar_url(:thumb)) %>
     </div>
   </div>
 </div>

@@ -1,19 +1,19 @@
 <div class="container-fluid">
   <div class="row">
     <div class="span1"></div>
-    <div class="span7 offset1">
+    <div class="span7 offset2">
       <div class="widget-box">
         <div class="widget-title">
           <span class="icon">
             <i class="icon-book "></i>
           </span>
-          <h5><%= @book_detail.title %></h5>
+          <h5><%= @book_detail.user.full_name rescue "" %></h5>
         </div>
-        <%= render :partial => 'book_detail' %>
+        <%= render :partial => 'user/book_details/book_detail' %>
         <div class="widget-content">
           <div class='span8 offset2' style="margin-top: -24px;">
-            <%= link_to 'Edit', edit_user_book_detail_path(@book_detail), :class => 'btn btn-primary' %>
-            <%= link_to 'Back', user_book_details_path , :class => 'btn btn-inverse' %>
+            <%= link_to 'Buy', buy_book_public_book_detail_path, :class => 'btn btn-primary', :method => :post %>
+            <%= link_to 'Back', public_book_details_path , :class => 'btn btn-inverse' %>
           </div>
         </div>
       </div>

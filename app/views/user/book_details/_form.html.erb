@@ -1,7 +1,7 @@
 <div class="control-group">
   <label class="control-label">File upload (Logo) </label>
   <div class="controls">
-    <%= image_tag(@book_detail.avatar_url) if @book_detail.avatar? %>
+    <%= image_tag(@book_detail.avatar_url(:small_thumb)) if @book_detail.avatar? %>
     <%= f.file_field :avatar %>
     <i class="icon-question-sign tipsy-tooltip" original-title="Size should be 640hx300w"> </i>
   </div>
