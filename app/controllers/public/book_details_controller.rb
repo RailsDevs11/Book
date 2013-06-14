@@ -17,6 +17,7 @@ class Public::BookDetailsController < Public::BaseController
     @book_detail = BookDetail.where(:id => params[:id]).first
     
     if current_user.present? && @book_detail.present?
+      @book_detail.update_attributes(:status => true)
       flash[:notice] = "Book was successfully buy"
       BookDetailMailer.notification_email(current_user).deliver
       BookDetailMailer.inform_email(@book_detail).deliver
