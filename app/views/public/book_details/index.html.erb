@@ -11,7 +11,8 @@
         <div class="widget-content nopadding updates">
           <% @book_details.each do |book_detail| %>
             <div class="new-update clearfix">
-              <%= image_tag(book_detail.avatar_url(:thumb), :style => "float: left; margin-right: 20px; height: 40px;")%>
+              <%= image_tag(book_detail.image_link, :style => "float: left; margin-right: 20px; height: 40px;") if book_detail.image_link.present? %>
+              <%= image_tag(book_detail.avatar_url(:thumb), :style => "float: left; margin-right: 20px; height: 40px;") if book_detail.avatar? %>
               <span class="update-done">                    
                 <a href="<%= public_book_detail_path(book_detail) %>" title=""><strong><%= book_detail.title %></strong></a>
                 <span><%= book_detail.description %></span>

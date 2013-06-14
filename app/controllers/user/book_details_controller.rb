@@ -9,7 +9,27 @@ class User::BookDetailsController < User::BaseController
   def show
     @book_detail = current_user.book_details.find(params[:id])
   end
-
+  
+  def search
+    isbn_number = params[:ssearch]
+    @book = GoogleBooks.search(isbn_number).first
+    
+    if @book.present?
+      @book_detail = current_user.book_details.new(
+        :isbn_number => @book.isbn, 
+        :author => @book.authors, 
+        :title => @book.title,
+        :description => @book.description ,
+        :image_link => @book.image_link
+      )
+      flash[:notice] = 'Book detail was successfully fill up, please click on submit.'
+    else
+      @book_detail = current_user.book_details.new
+      flash[:notice] = 'Book detail not found. Could you search again or create manually'
+    end
+    render :action => :new
+  end 
+  
   def new
     @book_detail = current_user.book_details.new
   end

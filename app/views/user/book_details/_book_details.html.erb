@@ -28,7 +28,10 @@
               <td><%= book_detail.isbn_number %></td>
               <td><%= book_detail.price %></td>
               <td><%= book_detail.user.full_name %></td>
-              <td><%= image_tag(book_detail.avatar_url(:small_thumb)) %></td>
+              <td>
+                <%= image_tag(book_detail.image_link, :style=> "height :40px;") if book_detail.image_link.present? %>
+                <%= image_tag(book_detail.avatar_url(:small_thumb)) if book_detail.avatar? %>
+              </td>
               <td style='text-align: center;'>
                 <%= link_to 'Edit', edit_user_book_detail_path(book_detail), 
                   :class=>"btn btn-mini btn-primary" %>

@@ -7,6 +7,7 @@ gem 'simple_form'
 gem 'omniauth'
 gem "omniauth-facebook"
 gem "omniauth-google"
+gem "googlebooks", "~> 0.0.6"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -23,7 +24,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl', '~> 4.1'
   gem 'factory_girl_rails'
-  #gem 'debugger'
+  gem 'debugger'
   gem 'therubyracer'
 end
 

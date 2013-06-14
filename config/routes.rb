@@ -5,7 +5,11 @@ Book::Application.routes.draw do
   namespace 'user' do
     resources 'dashboard', :only => [:index]
     resource 'profile', :only => [:show, :destroy]
-    resources :book_details
+    resources :book_details do
+      collection do
+        get :search
+      end
+    end
   end
 
   namespace 'public' do

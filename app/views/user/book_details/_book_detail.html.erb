@@ -43,7 +43,7 @@
     <div class="span2 offset1" style="text-align:left">
       <span style="font-weight:bold">Description</span>
     </div>
-    <div class="span2">
+    <div class="span5">
       <%= @book_detail.description %>
     </div>
   </div>
@@ -54,7 +54,8 @@
       <span style="font-weight:bold">Image</span>
     </div>
     <div class="span2">
-      <%= image_tag(@book_detail.avatar_url(:thumb)) %>
+      <%= image_tag(@book_detail.image_link) if @book_detail.image_link.present? %>
+      <%= image_tag(@book_detail.avatar_url(:thumb)) if @book_detail.avatar? %>
     </div>
   </div>
 </div>

@@ -2,6 +2,13 @@
   <h1>Add your book here</h1>
 <% end %>
 
+<div class="row-fluid offset1" style="margin-top: 6px;">
+  <%= form_tag search_user_book_details_path, :method => 'get', :id => "book_search" do %>
+    Search by ISBN number: <%= text_field_tag :ssearch, params[:search] %>
+    <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
+  <% end %>
+</div>
+
 <div class="container-fluid">
   <% if @book_detail.errors.any? %>
     <%= error_message(@book_detail.errors.full_messages, 'alert-error')%>
