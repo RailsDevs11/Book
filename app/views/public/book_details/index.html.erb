@@ -1,3 +1,12 @@
+<div class="row-fluid offset1" style="margin-top: 6px;">
+  <%= form_tag public_book_details_path, :method => 'get', :id => "book_search" do %>
+    Search by Author, Title or ISBN number: 
+    <%= text_field_tag :search_keyword, params[:search_keyword], :placeholder => "Book Author, ISBN number or Title" %>
+    <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
+  <% end %>
+</div>
+
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span10 offset1">

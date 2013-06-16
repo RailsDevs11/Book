@@ -16,4 +16,18 @@ class BookDetail < ActiveRecord::Base
            :order => 'title'
   end
 
+  #use scope to search book result from db
+  scope :book_search_by_keyword, lambda {|keyword|
+    self.where(
+      "lower(author) like ? "+
+      "or "+
+      "lower(isbn_number) like ? "+
+      "or "+
+      "lower(title) like ? ",
+      '%'+ keyword.downcase+'%',
+      '%'+keyword.downcase+'%',
+      '%'+keyword.downcase+'%'
+    )
+  }
+
 end

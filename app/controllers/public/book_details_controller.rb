@@ -2,15 +2,17 @@ class Public::BookDetailsController < Public::BaseController
   before_filter :authenticate_user!, :only => [:buy_book]
 
   def index
-    @book_details = BookDetail.search(params[:search], params[:page])
-  end
-
-  def show
-    @book_detail = BookDetail.find(params[:id])
-  end
-
-  def new
-    @book_detail = BookDetail.new
+    if params[:search_keyword].present?
+      @book_details = BookDetail.book_search_by_keyword(params[:search_keyword])
+    end
+    
+    if @book_details.present?
+      @book_details
+      flash[:notice] = "Below records found in search result"
+    else
+      @book_details = BookDetail.all
+      flash[:notice] = "No records found in search result, so listing all the book"
+    end
   end
 
   def buy_book
