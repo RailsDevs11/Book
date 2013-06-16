@@ -11,7 +11,7 @@ class Public::BookDetailsController < Public::BaseController
       flash[:notice] = "Below records found in search result"
     else
       @book_details = BookDetail.all
-      flash[:notice] = "No records found in search result, so listing all the book"
+      #flash[:notice] = "No records found in search result, so listing all the book"
     end
   end
 
