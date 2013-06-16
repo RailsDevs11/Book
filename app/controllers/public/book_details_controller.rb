@@ -15,6 +15,10 @@ class Public::BookDetailsController < Public::BaseController
     end
   end
 
+  def show
+    @book_detail = BookDetail.where(:id => params[:id]).first
+  end
+
   def buy_book
     @book_detail = BookDetail.where(:id => params[:id]).first
     
