@@ -67,8 +67,8 @@ Book::Application.configure do
     :address        => "smtp.sendgrid.net",
     :port           => "25",
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD']
+    :user_name      => "app16201283@heroku.com",
+    :password       => "lumqenpi"
   }
 
   # Log the query plan for queries taking more than this (works
