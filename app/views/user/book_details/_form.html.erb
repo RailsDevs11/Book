@@ -1,45 +1,53 @@
-<div class="control-group">
-  <label class="control-label">File upload (Logo) </label>
-  <div class="controls">
-    <%= image_tag(@book_detail.image_link) if @book_detail.image_link.present? %>
-    <%= image_tag(@book_detail.avatar_url(:small_thumb)) if @book_detail.avatar? %>
-    <%= f.hidden_field :image_link, :value => @book.image_link if @book.present? %>
-    <%= f.file_field :avatar %>
-    <i class="icon-question-sign tipsy-tooltip" original-title="Size should be 640hx300w"> </i>
+<fieldset>
+  <div class="control-group">
+    <label class="control-label" for="inputError">Title</label>
+    <div class="controls">
+      <%= f.text_field :title %>
+      <span class="help-inline"><%= f.error :title %></span>
+    </div>
   </div>
-</div>
-<div class="control-group">
-  <label class="control-label">Title</label>
-  <div class="controls">
-    <%= f.text_field :title, :placeholder => "Title"%>
+  <div class="control-group">
+    <label class="control-label" for="inputError">Author</label>
+    <div class="controls">
+      <%= f.text_field :author %>
+      <span class="help-inline"><%= f.error :author %></span>
+    </div>
   </div>
-</div>
-<div class="control-group">
-  <label class="control-label">Description</label>
-  <div class="controls">
-    <%= f.text_area :description, :rows =>'5', :placeholder => "Description"%>
+  <div class="control-group">
+    <label class="control-label" for="inputError">ISBN</label>
+    <div class="controls">
+      <%= f.text_field :isbn_number %>
+      <span class="help-inline"><%= f.error :isbn_number %></span>
+    </div>
   </div>
-</div>
-<div class="control-group">
-  <label class="control-label">Author</label>
-  <div class="controls">
-    <%= f.text_field :author, :rows =>'5', :placeholder => "Auther"%>
+  <div class="control-group">
+    <label class="control-label" for="appendedPrependedInput">Price</label>
+    <div class="controls">
+      <div class="input-prepend input-append">
+        <span class="add-on">$</span>
+        <%= f.text_field :price %>
+        <span class="add-on">.00</span>
+      </div>
+      <span class="help-inline"><%= f.error :price %></span>
+    </div>
+  </div>    
+  <div class="control-group">
+    <label class="control-label" for="fileInput">File Upload (Logo)</label>
+    <div class="controls">
+      <%= image_tag(@book_detail.image_link) if @book_detail.image_link.present? %>
+      <%= image_tag(@book_detail.avatar_url(:small_thumb)) if @book_detail.avatar? %>
+      <%= f.hidden_field :image_link, :value => @book.image_link if @book.present? %>
+      <%= f.file_field :avatar, :class => "input-file uniform_on" %>
+    </div>
+  </div>          
+  <div class="control-group hidden-phone">
+    <label class="control-label" for="textarea2">Description</label>
+    <div class="controls">
+      <%= f.text_area :description, :rows =>'3', :class=>"cleditor" %>
+    </div>
   </div>
-</div>
-<div class="control-group">
-  <label class="control-label">ISBN</label>
-  <div class="controls">
-    <%= f.text_field :isbn_number, :rows =>'5', :placeholder => "ISBN number"%>
+  <div class="form-actions">
+    <%= f.submit @book_detail.new_record? ? "Submit" : "Update", :class=>"btn btn-primary" %>
+    <button type="reset" class="btn">Cancel</button>
   </div>
-</div>
-
-<div class="control-group">
-  <label class="control-label">Price</label>
-  <div class="controls">
-    <%= f.text_field :price, :rows =>'5', :placeholder => "Value"%>
-  </div>
-</div>
-
-<div class="form-actions">
-  <%= f.submit @book_detail.new_record? ? "Submit" : "Update", :class=>"btn btn-primary offset4" %>
-</div>
+</fieldset>
