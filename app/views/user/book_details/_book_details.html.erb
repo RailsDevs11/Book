@@ -1,55 +1,29 @@
-<div class="widget-box">
-  <label><div class="widget-title cursor-pointer">
-    <span class="icon">
-      <input type="checkbox" name="book_detail" id="online_auction_list_chk" href="#online_auction_list_div" class="toggle" />
-    </span>
-    <h5>Book Details</h5>
-  </div></label>
-  <div class="widget-content nopadding" id="online_auction_list_div" >
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>ISBN number</th>
-          <div class="widget-box">
-          <th>Price</th>
-          <th>User Name</th>
-          <th>Book Image</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% unless book_details.blank? %>
-          <% book_details.each do |book_detail| %>
-            <tr>
-              <td><%= book_detail.title %></td>
-              <td><%= book_detail.author %></td>
-              <td><%= book_detail.isbn_number %></td>
-              <td><%= book_detail.price %></td>
-              <td><%= book_detail.user.full_name %></td>
-              <td>
-                <%= image_tag(book_detail.image_link, :style=> "height :40px;") if book_detail.image_link.present? %>
-                <%= image_tag(book_detail.avatar_url(:small_thumb)) if book_detail.avatar? %>
-              </td>
-              <td style='text-align: center;'>
-                <%= link_to 'Edit', edit_user_book_detail_path(book_detail), 
-                  :class=>"btn btn-mini btn-primary" %>
-                <%= link_to 'Preview', user_book_detail_path(book_detail), 
-                  :class=>"btn btn-mini btn-inverse" %>
-                <%= link_to 'Delete', user_book_detail_path(book_detail), method: :delete, 
-                  :class=>"btn btn-mini btn-danger",
-                  :confirm => 'Are you sure do you want to delete this book_detail?',
-                  "original-title" => "delete your book_detail" %>
-              </td>
-            </tr>
-          <% end %>
-        <% else %>
-          <tr>
-            <td colspan="3" class="row_font_color"><h4>There is no book_details found!</h4></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<% unless book_details.blank? %>
+  <% book_details.each do |book_detail| %>
+    <tr>
+      <td><%= book_detail.title %></td>
+      <td class="center"><%= book_detail.author %></td>
+      <td class="center"><%= book_detail.isbn_number %></td>
+      <td class="center"><%= book_detail.price %></td>
+      <td class="center">
+        <span class="label label-important"><%= book_detail.user.full_name %></span>
+      </td>
+      <td class="center">
+        <a class="btn btn-success" href="<%= user_book_detail_path(book_detail) %>">
+          <i class="icon-zoom-in "></i>                                            
+        </a>
+        <a class="btn btn-info" href="<%= edit_user_book_detail_path(book_detail) %>">
+          <i class="icon-edit "></i>                                            
+        </a>
+        <%= link_to '<i class="icon-trash "></i>'.html_safe, user_book_detail_path(book_detail), method: :delete, 
+          :class=>"btn btn-danger",
+          :confirm => 'Are you sure do you want to delete this book_detail?',
+          "original-title" => "delete your book_detail" %>
+      </td>
+    </tr>
+  <% end %>
+<% else %>
+  <tr>
+    <td colspan="3" class="row_font_color"><h4>There is no book_details found!</h4></td>
+  </tr>
+<% end %>

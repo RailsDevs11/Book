@@ -1,6 +1,6 @@
 class User::BookDetailsController < User::BaseController
   before_filter :authenticate_user!
-  layout 'dashboard'
+  layout 'simpliq_application'
 
   def index
     @book_details = current_user.book_details.search(params[:search], params[:page])

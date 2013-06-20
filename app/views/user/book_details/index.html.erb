@@ -1,12 +1,33 @@
-<% content_for :header do %>
-  <h1>View/Edit Products</h1>
-<% end %>
-
-<div class="container-fluid">
-  <div class="row-fluid ">
-    <div class="span12">
-      <%= render :partial => "book_details",
-        :locals =>{:book_details => @book_details} %>
-    </div>
-  </div>
+<!-- start: Content -->
+<div id="content" class="span10">
+  <div class="row-fluid">   
+    <div class="box span12">
+      <div class="box-header" data-original-title>
+        <h2><i class="icon-tasks"></i><span class="break"></span>Books</h2>
+        <div class="box-icon">
+          <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
+          <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+        </div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped table-bordered bootstrap-datatable datatable">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ISBN Number</th>
+              <th>Price</th>
+              <th>Username</th>
+              <th>Actions</th>
+            </tr>
+          </thead>   
+          <tbody>
+          <%= render :partial => "book_details",
+            :locals =>{:book_details => @book_details} %>
+          </tbody>
+        </table>            
+      </div>
+    </div><!--/span-->
+  </div><!--/row-->
 </div>
