@@ -1,3 +1,3 @@
 class User::BaseController < ApplicationController
-  layout "dashboard"
+  layout "simpliq_application"
 end
