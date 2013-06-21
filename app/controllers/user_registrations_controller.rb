@@ -1,6 +1,6 @@
 class UserRegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_user!, :only => [:update, :edit]
-  layout 'dashboard', :only => [:edit, :update]
+  layout 'simpliq_application', :only => [:edit, :update]
 
   def update
     # required for settings form to submit when password is left blank

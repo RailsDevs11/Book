@@ -1,10 +1,22 @@
-<% content_for :header do %>
-  <h1>Update Your Profile</h1>
-<% end %>
-<div class="container-fluid">
+<!-- start: Content -->
+<div id="content" class="span10">
   <div class="row-fluid">
-    <div class="span6">
-      <%= render :partial => 'update_user' %>
-    </div>
-  </div>
+    <div class="box span12">
+      <div class="box-header">
+        <h2><i class="icon-edit"></i>Update Your Profile</h2>
+        <div class="box-icon">
+          <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
+          <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+        </div>
+      </div>
+      <div class="box-content">
+        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class=>"form-horizontal", :multipart => true }) do |f| %>
+          <%= hidden_field_tag :id, resource[:id] %>
+          <%= render :partial => "update_user", :locals => { :f => f } %>
+        <% end %>
+      </div>
+    </div><!--/span-->
+  </div><!--/row-->
 </div>
+<!-- end: Content -->
