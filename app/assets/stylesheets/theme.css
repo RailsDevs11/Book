@@ -64,7 +64,7 @@ body {
   text-shadow: none;
 }
 .navbar .nav.pull-right {
-  top: 10px;
+  top: 0px;
   /*margin-right: 40px;*/
 }
 .navbar .nav > li > a {

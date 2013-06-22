@@ -3,11 +3,12 @@
     <tr>
       <td><%= book_detail.title %></td>
       <td class="center"><%= book_detail.author %></td>
+      <td class="center">
+        <%= image_tag(book_detail.image_link, :style => 'height: 38px;') if book_detail.image_link.present? %>
+        <%= image_tag(book_detail.avatar_url(:thumb), :style => 'height: 38px;') if book_detail.avatar? %>
+      </td>
       <td class="center"><%= book_detail.isbn_number %></td>
       <td class="center"><%= book_detail.price %></td>
-      <td class="center">
-        <span class="label label-important"><%= book_detail.user.full_name %></span>
-      </td>
       <td class="center">
         <a class="btn btn-success" href="<%= user_book_detail_path(book_detail) %>">
           <i class="icon-zoom-in "></i>                                            

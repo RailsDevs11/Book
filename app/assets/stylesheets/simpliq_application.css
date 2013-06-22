@@ -12,7 +12,6 @@
  *= require bootstrap.min
  *= require bootstrap-responsive.min
  *= require style-responsive.min
- *= require style-responsive
  *= require retina
  *= require elfinder.min
  *= require elfinder.theme

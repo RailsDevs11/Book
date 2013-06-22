@@ -1,37 +1,34 @@
-<div class="row-fluid offset1" style="margin-top: 6px;">
-  <%= form_tag public_book_details_path, :method => 'get', :id => "book_search" do %>
-    Search by Author, Title or ISBN number: 
-    <%= text_field_tag :search_keyword, params[:search_keyword], :placeholder => "Book Author, ISBN number or Title" %>
-    <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
-  <% end %>
-</div>
-
-
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10 offset1">
-      <div class="widget-box">
-        <div class="widget-title">
-          <span class="icon">
-            <i class="icon-refresh"></i>
-          </span> 
-          <h5>All book_details</h5>
-        </div>
-        <div class="widget-content nopadding updates">
-          <% @book_details.each do |book_detail| %>
-            <div class="new-update clearfix">
-              <%= image_tag(book_detail.image_link, :style => "float: left; margin-right: 20px; height: 40px;") if book_detail.image_link.present? %>
-              <%= image_tag(book_detail.avatar_url(:thumb), :style => "float: left; margin-right: 20px; height: 40px;") if book_detail.avatar? %>
-              <span class="update-done">                    
-                <a href="<%= public_book_detail_path(book_detail) %>" title=""><strong><%= book_detail.title %></strong></a>
-                <span><%= book_detail.description %></span>
-              </span>
-              <span class="update-date"><span class="update-day"><%= day_format(book_detail.created_at) %></span><%= month_format(book_detail.created_at) %></span>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+<div class="row-fluid" style="margin-top: 6px;">
+  <div class="span7 offset2">
+    <%= form_tag public_book_details_path, :method => 'get', :id => "book_search" do %>
+      Search by Author, Title or ISBN number: 
+      <%= text_field_tag :search_keyword, params[:search_keyword], :placeholder => "Book Author, ISBN number or Title" %>
+      <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
+    <% end %>
   </div>
 </div>
 
+<% @book_details.each do |book_detail| %>
+  <div class="row-fluid">
+    <div class="span10 discussions offset1">
+      <ul>
+        <li>
+          <div class="author">
+            <%= image_tag(book_detail.image_link) if book_detail.image_link.present? %>
+            <%= image_tag(book_detail.avatar_url(:thumb)) if book_detail.avatar? %>
+          </div>
+          <div class="name">
+            <a href="<%= public_book_detail_path(book_detail) %>" style="color: #36A9E1;"><strong><%= book_detail.title %></strong></a>
+          </div>
+          <div class="date">
+            <%= day_format(book_detail.created_at) %> <%= month_format(book_detail.created_at) %>
+          </div>
+          <div class="delete"><i class="icon-book"></i></div>
+          <div class="message">
+            <%= book_detail.description %>
+          </div>  
+        </li>            
+      </ul> 
+    </div>
+  </div>
+<% end %>
