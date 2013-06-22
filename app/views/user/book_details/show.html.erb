@@ -1,23 +1,24 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="span1"></div>
-    <div class="span9 offset1">
-      <div class="widget-box">
-        <div class="widget-title">
-          <span class="icon">
-            <i class="icon-book "></i>
-          </span>
-          <h5><%= @book_detail.title %></h5>
-        </div>
-        <%= render :partial => 'book_detail' %>
-        <div class="widget-content">
-          <div class='span8 offset2' style="margin-top: -24px;">
-            <%= link_to 'Edit', edit_user_book_detail_path(@book_detail), :class => 'btn btn-primary' %>
-            <%= link_to 'Back', user_book_details_path , :class => 'btn btn-inverse' %>
+<!-- start: Content -->
+<div id="content" class="span10">
+  <div class="row-fluid">
+    <div class="box span12">
+      <div class="box-header">
+        <h2><i class="icon-font"></i><span class="break"></span><%= @book_detail.title %></h2>
+      </div>
+      <div class="box-content">
+        <div class="page-header">
+          <h1><small>Please review the book details</small></h1>
+        </div>     
+        <div class="row-fluid">            
+          <%= render :partial => 'book_detail' %>
+          <div class="form-actions">
+            <%= link_to 'Update Profile', edit_user_book_detail_path(@book_detail), :class => 'btn btn-primary' %>  
+            <%= link_to 'Back', user_book_details_path, :class => 'btn btn-inverse' %>
           </div>
         </div>
       </div>
     </div>
-    <div class="span3"></div>
-  </div>
+  </div><!--/row-->      
 </div>
+<!-- end: Content -->
+
