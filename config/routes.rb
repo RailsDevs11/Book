@@ -19,28 +19,6 @@ Book::Application.routes.draw do
       end
     end
   end
-
-  namespace 'simpliq' do
-    resources :static_pages do
-      collection do
-        get :dashboard
-        get :ui_features
-        get :widgets
-        get :forms
-        get :charts
-        get :typography
-        get :gallery
-        get :table
-        get :calendar
-        get :file_manager
-        get :icon
-        get :infrastructure
-        get :messages
-        get :tasks
-        get :login_page
-      end  
-    end  
-  end
   
   match '/auth/:provider/callback', :to => 'authentications#create'
   match '/auth/failure', :to => 'authentications#failure'
