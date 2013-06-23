@@ -8,12 +8,10 @@ class User::DashboardController < User::BaseController
     
     if @book_details.present?
       @book_details
-      flash[:notice] = "Below records found in search result"
+      flash[:notice] = "Below records found in search result, please click on into title and buy now"
     else
       @book_details = BookDetail.all
-      #flash[:notice] = "No records found in search result, so listing all the book"
     end
-    #redirect_to user_dashboard_index_path
   end
   
 end

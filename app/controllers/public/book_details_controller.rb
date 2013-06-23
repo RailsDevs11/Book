@@ -8,10 +8,9 @@ class Public::BookDetailsController < Public::BaseController
     
     if @book_details.present?
       @book_details
-      flash[:notice] = "Below records found in search result"
+      flash[:notice] = "Below records found in search result, please click on into title and buy now"
     else
       @book_details = BookDetail.all
-      #flash[:notice] = "No records found in search result, so listing all the book"
     end
   end
 
@@ -25,8 +24,8 @@ class Public::BookDetailsController < Public::BaseController
     if current_user.present? && @book_detail.present?
       @book_detail.update_attributes(:status => true)
       flash[:notice] = "Book was successfully buy"
-      BookDetailMailer.notification_email(current_user).deliver
-      BookDetailMailer.inform_email(@book_detail).deliver
+      BookDetailMailer.notification_email(current_user)
+      BookDetailMailer.inform_email(@book_detail)
     else
       flash[:notice] = "Please signin or signup before continue"
     end
