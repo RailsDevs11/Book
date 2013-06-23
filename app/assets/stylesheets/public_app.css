@@ -11,20 +11,5 @@
  *= require_self
  *= require style-responsive.min
  *= require retina
- *= require elfinder.min
- *= require elfinder.theme
- *= require font-awesome-ie7.min
- *= require font-awesome.min
- *= require glyphicons
- *= require halflings
- *= require ie
- *= require ie9
- *= require jquery.cleditor
- *= require jquery.gritter
- *= require jquery.iphone.toggle
- *= require jquery.noty
- *= require jquery-ui-1.10.3.custom
- *= require noty_theme_default
- *= require style.min
- *= require uploadify
+ = require style.min
  */
