@@ -9,10 +9,7 @@
       <li><a href="<%= user_dashboard_index_path %>"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li> 
       <li><a href="<%= new_user_book_detail_path %>"><i class="icon-folder-open"></i><span class="hidden-tablet"> Create Book</span></a></li> 
       <li><a href="<%= user_book_details_path %>"><i class="icon-reorder"></i><span class="hidden-tablet"> My Books</span></a></li> 
-      <li><a href="<%= public_book_details_path %>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Public Pages</span></a></li> 
-      <li>
-        <%= link_to '<i class="icon icon-trash"></i><span>Delete Account</span>'.html_safe, user_profile_path, :method => :delete, :confirm => "Are you sure to delete your account?" %>
-      </li> 
+      <li><a href="<%= new_user_notify_path %>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Notify</span></a></li> 
     </ul>
   </div>
 </div>

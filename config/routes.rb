@@ -10,6 +10,7 @@ Book::Application.routes.draw do
         get :search
       end
     end
+    resources :notifies
   end
 
   namespace 'public' do

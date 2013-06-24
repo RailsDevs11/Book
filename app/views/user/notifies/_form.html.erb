@@ -1,0 +1,21 @@
+<fieldset>
+  <div class="control-group">
+    <label class="control-label" for="inputError">ISBN</label>
+    <div class="controls">
+      <%= f.text_field :isbn_number %>
+      <span class="help-inline"><%= f.error :isbn_number %></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputError">Date</label>
+    <div class="controls">
+      <%= f.text_field :end_date %>
+      <span class="help-inline"><%= f.error :end_date %></span>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit @notify.new_record? ? "Submit" : "Update", :class=>"btn btn-primary" %>
+    <button type="reset" class="btn">Cancel</button>
+  </div>
+</fieldset>

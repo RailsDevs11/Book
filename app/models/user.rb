@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :delete_all
   has_many :book_details, :dependent => :destroy
+  has_many :notifies, :dependent => :destroy
   
   #by default devise provides login with email
   #If also need to login with username then need to overrides this method

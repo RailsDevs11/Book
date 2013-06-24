@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Isbn number:</b>
+  <%= @notify.isbn_number %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @notify.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_notify_path(@notify) %> |
+<%= link_to 'Back', notifies_path %>
