@@ -56,7 +56,7 @@ class User::NotifiesController < User::BaseController
 
     respond_to do |format|
       format.html { 
-        redirect_to user_notifies_pathnotice: 'Notify was successfully deleted.' 
+        redirect_to user_notifies_path, notice: 'Notify was successfully deleted.' 
       }
     end
   end

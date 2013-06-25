@@ -1,15 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Isbn number:</b>
-  <%= @notify.isbn_number %>
-</p>
-
-<p>
-  <b>End date:</b>
-  <%= @notify.end_date %>
-</p>
-
-
-<%= link_to 'Edit', edit_notify_path(@notify) %> |
-<%= link_to 'Back', notifies_path %>
+<!-- start: Content -->
+<div id="content" class="span10">
+  <div class="row-fluid">
+    <div class="box span12">
+      <div class="box-header">
+        <h2><i class="icon-font"></i><span class="break"></span><%= @notify.isbn_number %></h2>
+      </div>
+      <div class="box-content">
+        <div class="page-header">
+          <h1><small>Please review the notify</small></h1>
+        </div>     
+        <div class="row-fluid">            
+          <div class="widget-content">
+            <div class="row row-size margin_from_top">
+              <div class="span2 offset1" style="text-align:left">
+                <span style="font-weight:bold">ISBN</span>
+              </div>
+              <div class="span2">
+                <%= @notify.isbn_number %>
+              </div>
+            </div>
+          </div>
+          <div class="widget-content">
+            <div class="row row-size margin_from_top">
+              <div class="span2 offset1" style="text-align:left">
+                <span style="font-weight:bold">End Date</span>
+              </div>
+              <div class="span2">
+                <%= @notify.end_date %>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= link_to 'Update Profile', edit_user_notify_path(@notify), :class => 'btn btn-primary' %>  
+            <%= link_to 'Back', user_notifies_path, :class => 'btn btn-inverse' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/row-->      
+</div>
+<!-- end: Content -->

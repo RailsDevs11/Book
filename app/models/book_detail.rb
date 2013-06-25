@@ -11,6 +11,9 @@ class BookDetail < ActiveRecord::Base
   validates :isbn_number, :presence => true
   validates :author, :presence => true
 
+  #callback
+  after_create :notifiy_to_user
+
   def self.search(search, page)
     paginate :per_page => 5, :page => page,
            :order => 'title'
@@ -30,4 +33,12 @@ class BookDetail < ActiveRecord::Base
     )
   }
 
+  def notifiy_to_user
+    notifies = Notify.where("lower(isbn_number) = ? AND end_date >= ?", self.isbn_number, self.created_at)
+    if !notifies.blank?
+      notifies.each do |notify|
+        BookDetailMailer.user_notify_email(notify.user)
+      end  
+    end  
+  end
 end

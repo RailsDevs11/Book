@@ -17,4 +17,12 @@ class BookDetailMailer < ActionMailer::Base
     }).deliver    
   end
 
+  def user_notify_email(user)
+    @user = user
+    mail({
+      :to => @user.email,
+      :subject => "Notify Email"
+    }).deliver    
+  end
+
 end

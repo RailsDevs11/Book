@@ -11,8 +11,8 @@
         </div>
       </div>
       <div class="box-content">
-        <%= simple_form_for(@notify, :url => user_notifies_path, 
-        :html => { :method => :put, :class=>"form-horizontal" } ) do |f| %>
+        <%= simple_form_for(@notify, :url => user_notify_path, 
+        :html => { :method => :put, :class=>"form-horizontal", :multipart => true } ) do |f| %>
           <%= render :partial => "form", :locals => { :f => f } %>
         <% end %>
       </div>

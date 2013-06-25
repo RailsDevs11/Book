@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20130624104857) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.string   "avatar"
-    t.string   "image_link"
     t.boolean  "status",      :default => false
+    t.string   "image_link"
   end
 
   create_table "notifies", :force => true do |t|
