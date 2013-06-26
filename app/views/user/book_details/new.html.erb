@@ -13,7 +13,7 @@
       <div class="box-content">
         <div id="MyWizard" class="wizard">
           <%= form_tag search_user_book_details_path, :method => 'get', :id => "book_search" do %>
-            SEARCH BY ISBN NUMBER  <%= text_field_tag :ssearch, params[:search] %>
+            Post Book By ISBN  <%= text_field_tag :ssearch, params[:search] %>
             <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
           <% end %>
         </div>
