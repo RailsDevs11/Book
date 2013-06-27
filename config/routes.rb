@@ -3,7 +3,12 @@ Book::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "user_registrations"}
  
   namespace 'user' do
-    resources 'dashboard', :only => [:index]
+    resources 'dashboard', :only => [:index] do
+      collection do
+        get :cart
+        get :cart_destroy
+      end
+    end    
     resource 'profile', :only => [:show, :destroy]
     resources :book_details do
       collection do
