@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
   #Define attribute accessor
   attr_accessible :email, :password, :password_confirmation, :current_password, :remember_me, 
     :first_name, :last_name, :username, :terms_of_service, :email_confirmation, :login, :address, 
-    :city, :state, :zipcode, :country, :phone
+    :city, :state, :zipcode, :country, :phone, :image, :image_cache
   attr_accessor :current_password, :login
+  mount_uploader :image, ImageUploader 
   
   #Define validation for every attribute
   validates :first_name, :presence => true, :format => { :with => /^[a-zA-Z ]+$/, :message => "Only letters allowed"  }
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
   #Fetch the full name of the user
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def profile_icon
+    (self.image.present? and self.image_url(:small_thumb).present?) ? self.image_url(:small_thumb) : "/assets/avatar.jpg"
   end
 
   def apply_omniauth(auth)

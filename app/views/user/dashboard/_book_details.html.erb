@@ -1,0 +1,28 @@
+<% unless book_details.blank? %>
+  <% book_details.each do |book_detail| %>
+    <tr>
+      <td>
+        <a href="<%= public_book_detail_path(book_detail) %>" style="color: #36A9E1;"><%= book_detail.title %>
+        </a>
+      </td>
+      <td class="center"><%= book_detail.author %></td>
+      <td class="center">
+        <%= book_detail.edition %>
+      </td>
+      <td class="center"><%= book_detail.price %></td>
+      <td class="center"><%= book_detail.condition %></td>
+      <td class="center">
+        <% if !book_detail.status? %>
+          <%= link_to "Buy", buy_book_public_book_detail_path(book_detail), :class => 'btn btn-mini btn-success', :method => :post %>
+          <a class="btn btn-mini btn-info" href="#">Send</a>
+        <% else %>
+          <%= link_to "Delete", cart_destroy_user_dashboard_index_path(:id => book_detail), :class => 'btn btn-mini btn-danger' %>
+        <% end %>    
+      </td>
+    </tr>
+  <% end %>
+<% else %>
+  <tr>
+    <td colspan="3" class="row_font_color"><h4>There is no book_details found!</h4></td>
+  </tr>
+<% end %>

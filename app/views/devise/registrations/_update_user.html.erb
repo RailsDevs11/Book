@@ -26,6 +26,17 @@
     </div>
   </div>
   <div class="control-group">
+    <label class="control-label" for="fileInput">Image Upload</label>
+    <div class="controls">
+      <%#= image_tag(resource.image_link) if resource.image_link.present? %>
+      <%= image_tag(resource.image_url) if resource.image? %>
+      <%#= f.hidden_field :image_link, :value => @book.image_link if @book.present? %>
+      <%= f.file_field :image, :class => "input-file uniform_on" %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+  </div>
+
+  <div class="control-group">
     <label class="control-label">Address</label>
     <div class="controls">
       <%= f.text_area :address, :rows => '3' %>

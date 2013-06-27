@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624104857) do
+ActiveRecord::Schema.define(:version => 20130627185916) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20130624104857) do
     t.string   "avatar"
     t.boolean  "status",      :default => false
     t.string   "image_link"
+    t.string   "edition"
+    t.integer  "condition"
   end
 
   create_table "notifies", :force => true do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130624104857) do
     t.string   "authentication_token"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

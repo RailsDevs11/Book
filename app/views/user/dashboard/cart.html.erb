@@ -1,45 +1,47 @@
+<!-- start: Content -->
 <div id="content" class="span10" style="min-height: 600px;">
-  <div class="row-fluid" style="margin-top: 6px;">
-    <div class="span7 offset2">
-      <%= form_tag cart_user_dashboard_index_path, :method => 'get', :id => "book_search" do %>
-        Search by Author, Title or ISBN number: 
-        <%= text_field_tag :search_keyword, params[:search_keyword], :placeholder => "Book Author, ISBN number or Title" %>
-        <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
-      <% end %>
-    </div>
-  </div>
-
-  <% @book_details.each do |book_detail| %>
-    <div class="row-fluid">
-      <div class="span10 discussions offset1">
-        <ul>
-          <li>
-            <div class="author">
-              <%= image_tag(book_detail.image_link) if book_detail.image_link.present? %>
-              <%= image_tag(book_detail.avatar_url(:thumb)) if book_detail.avatar? %>
-            </div>
-            <div class="name">
-              <a href="<%= public_book_detail_path(book_detail) %>" style="color: #36A9E1;"><strong><%= book_detail.title %></strong></a>
-            </div>
-            <div class="date">
-              <%= day_format(book_detail.created_at) %> <%= month_format(book_detail.created_at) %>
-            </div>
-            <div class="delete">
-              <%= link_to "Delete", cart_destroy_user_dashboard_index_path(:id => book_detail) %>
-            </div>
-            <div class="message">
-              <%= book_detail.description %>
-            </div>  
-          </li>            
-        </ul> 
+  <div class="row-fluid">   
+    <div class="box span12">
+      <div class="box-header" data-original-title>
+        <h2><i class="icon-tasks"></i><span class="break"></span>Books Cart</h2>
+        <div class="box-icon">
+          <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
+          <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+        </div>
       </div>
-    </div>
-  <% end %>
+      <div class="row-fluid" style="margin-top: 6px;">
+        <div class="span7 offset2">
+          <%= form_tag cart_user_dashboard_index_path, :method => 'get', :id => "book_search" do %>
+            Search by Author, Title or ISBN number: 
+            <%= text_field_tag :search_keyword, params[:search_keyword], :placeholder => "Book Author, ISBN number or Title" %>
+            <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary", :style => "margin-bottom: 10px;" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped table-bordered bootstrap-datatable datatable">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Edition</th>
+              <th>Price</th>
+              <th>Condition</th>
+              <th>Status</th>
+            </tr>
+          </thead>   
+          <tbody>
+          <%= render :partial => "book_details",
+            :locals =>{:book_details => @book_details} %>
+          </tbody>
+        </table>            
+      </div>
+    </div><!--/span-->
+  </div><!--/row-->
 </div>
 <style>
-.container-fluid-full #content {
-  margin-left: 5.422% !important;
-  width: 100%;
-  padding: 10px;
+#DataTables_Table_0_filter  {
+  display: none;
 }
 </style>

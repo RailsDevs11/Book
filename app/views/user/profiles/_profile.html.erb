@@ -21,6 +21,16 @@
 <div class="widget-content">
   <div class="row row-size margin_from_top">
     <div class="span2 offset1" style="text-align:left">
+      <span style="font-weight:bold">Image</span>
+    </div>
+    <div class="span2">
+      <%= image_tag(@user.image_url) if @user.image? %>
+    </div>
+  </div>
+</div>
+<div class="widget-content">
+  <div class="row row-size margin_from_top">
+    <div class="span2 offset1" style="text-align:left">
       <span style="font-weight:bold">Address</span>
     </div>
     <div class="span2">

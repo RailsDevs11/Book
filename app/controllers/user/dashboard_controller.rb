@@ -28,7 +28,6 @@ class User::DashboardController < User::BaseController
   end
 
   def cart_destroy
-    debugger
     @book_detail = current_user.book_details.find(params[:id])
     if @book_detail.update_attributes(:status => false)
       redirect_to cart_user_dashboard_index_path, notice: 'Book detail was successfully updated.' 
