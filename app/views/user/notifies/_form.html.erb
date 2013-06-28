@@ -16,6 +16,6 @@
 
   <div class="form-actions">
     <%= f.submit @notify.new_record? ? "Submit" : "Update", :class=>"btn btn-primary" %>
-    <button type="reset" class="btn">Cancel</button>
+    <%= link_to 'Back', user_notifies_path, :class => 'btn btn-inverse' %>
   </div>
 </fieldset>
