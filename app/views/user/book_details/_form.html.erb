@@ -38,6 +38,12 @@
     </div>
   </div>
   <div class="control-group">
+    <label class="control-label" for="selectError30">Condition</label>
+    <div class="controls">
+      <%= f.select(:condition, options_for_select([1,2,3,4,5,6,7,8,9,10], @book_detail.condition)) %>
+    </div>
+  </div>
+  <!-- <div class="control-group">
     <label class="control-label" for="inputError">Condition</label>
     <span class="rating" style="margin-left: 21px;">
       <span class="star"></span>
@@ -46,7 +52,7 @@
       <span class="star"></span>
       <span class="star"></span>
     </span>
-  </div>    
+  </div>  -->   
   <div class="control-group">
     <label class="control-label" for="fileInput">File Upload (Logo)</label>
     <div class="controls">
