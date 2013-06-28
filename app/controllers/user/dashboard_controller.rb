@@ -35,5 +35,16 @@ class User::DashboardController < User::BaseController
       render action: "cart" 
     end
   end
+
+  def send_message
+    book_detail = BookDetail.where(:id => params[:id]).first
+    if !(book_detail.blank? || book_detail.user.blank?)
+      BookDetailMailer.notify_to_book_owner(book_detail)
+      flash[:notice] = "Send message successfully to book owner"
+    else
+      flash[:notice] = "Book user not found"   
+    end
+    redirect_to(:back)  
+  end  
   
 end

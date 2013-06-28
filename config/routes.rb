@@ -7,6 +7,7 @@ Book::Application.routes.draw do
       collection do
         get :cart
         get :cart_destroy
+        get :send_message
       end
     end    
     resource 'profile', :only => [:show, :destroy]
