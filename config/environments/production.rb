@@ -53,13 +53,24 @@ Book::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => 'book-post.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-
+=begin
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",
     :port           => "25",
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD']
+  }
+=end
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :user_name      => 'app16201283@heroku.com',
+    :password       => '4bxa7hgp',
+    :domain         => 'book-post.herokuapp.com',
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 
 
