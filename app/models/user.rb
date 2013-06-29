@@ -38,7 +38,13 @@ class User < ActiveRecord::Base
   end
 
   def profile_icon
-    (self.image.present? and self.image_url(:small_thumb).present?) ? self.image_url(:small_thumb) : "/assets/avatar.jpg"
+    if self.image.present?
+      self.image_url(:small_thumb).present? ? self.image_url(:small_thumb) : "/assets/avatar.jpg"
+    elsif self.socail_img.present?
+      self.socail_img.present? ? self.socail_img : "/assets/avatar.jpg"
+    else
+      "/assets/avatar.jpg"
+    end
   end
 
   def apply_omniauth(auth)
@@ -48,11 +54,14 @@ class User < ActiveRecord::Base
       self.first_name = auth['extra']['raw_info']['first_name']
       self.last_name = auth['extra']['raw_info']['last_name']
       self.address = auth['extra']['raw_info']['location']['name'] if auth['extra']['raw_info']['location'].present?
+      self.image = auth['extra']['raw_info']['image']
+      self.socail_img = "https://graph.facebook.com/#{auth[:uid]}/picture?type=small"
     else
       self.email = auth['info']['email']
       self.first_name = auth['info']['first_name']
       self.last_name = auth['info']['last_name']
       self.address = auth['info']['location'] if auth['info']['location'].present?
+      self.image = auth['info']['image']
     end
     # saving fb info into db
     authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
