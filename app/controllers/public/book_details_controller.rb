@@ -1,5 +1,6 @@
 class Public::BookDetailsController < Public::BaseController
   before_filter :authenticate_user!, :only => [:buy_book]
+  layout 'simpliq_application', :only => [:show]
 
   def index
     if params[:search_keyword].present?
