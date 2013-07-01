@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627185916) do
+ActiveRecord::Schema.define(:version => 20130701174813) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130627185916) do
     t.string   "image_link"
     t.string   "edition"
     t.integer  "condition"
+    t.integer  "msg_count",   :default => 0
   end
 
   create_table "notifies", :force => true do |t|
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130627185916) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "image"
+    t.string   "socail_img"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

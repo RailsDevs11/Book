@@ -39,6 +39,7 @@ class User::DashboardController < User::BaseController
   def send_message
     book_detail = BookDetail.where(:id => params[:id]).first
     if !(book_detail.blank? || book_detail.user.blank?)
+      book_detail.update_attributes(:msg_count => (book_detail.msg_count + 1))
       BookDetailMailer.notify_to_book_owner(book_detail)
       flash[:notice] = "Send message successfully to book owner"
     else

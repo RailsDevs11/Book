@@ -1,6 +1,6 @@
 class BookDetail < ActiveRecord::Base
   attr_accessible :author, :description, :isbn_number, :price, :title, :user_id, 
-    :avatar, :avatar_cache, :image_link, :status, :edition, :condition
+    :avatar, :avatar_cache, :image_link, :status, :edition, :condition, :msg_count
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :user

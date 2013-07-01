@@ -14,7 +14,11 @@
       <td class="center">
         <% if !book_detail.status? %>
           <%= link_to "Buy", buy_book_public_book_detail_path(book_detail), :class => 'btn btn-mini btn-success', :method => :post %>
-          <%= link_to "Send", send_message_user_dashboard_index_path(:id => book_detail), :class => 'btn btn-mini btn-info' %>
+          <% if book_detail.msg_count == 3 %>
+            <span class="label label-warning">Pending</span>
+          <% else %>
+            <%= link_to "Send", send_message_user_dashboard_index_path(:id => book_detail), :class => 'btn btn-mini btn-info' %>
+          <% end %>  
         <% else %>
           <%= link_to "Delete", cart_destroy_user_dashboard_index_path(:id => book_detail), :class => 'btn btn-mini btn-danger' %>
         <% end %>    
