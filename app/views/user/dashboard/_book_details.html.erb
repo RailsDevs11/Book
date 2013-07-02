@@ -10,7 +10,7 @@
         <%= book_detail.edition %>
       </td>
       <td class="center"><%= book_detail.price %></td>
-      <td class="center"><%= book_detail.condition %></td>
+      <td class="center"><%= BookDetail::CONDITION.key(book_detail.condition) %></td>
       <td class="center">
         <% if !book_detail.status? %>
           <%= link_to "Buy", buy_book_public_book_detail_path(book_detail), :class => 'btn btn-mini btn-success', :method => :post %>

@@ -31,6 +31,25 @@
 <div class="widget-content">
   <div class="row row-size margin_from_top">
     <div class="span2 offset1" style="text-align:left">
+      <span style="font-weight:bold">Edition</span>
+    </div>
+    <div class="span2">
+      <%= @book_detail.edition %>
+    </div>
+  </div>
+</div><div class="widget-content">
+  <div class="row row-size margin_from_top">
+    <div class="span2 offset1" style="text-align:left">
+      <span style="font-weight:bold">Condition</span>
+    </div>
+    <div class="span2">
+      <%= BookDetail::CONDITION.key(@book_detail.condition) %>
+    </div>
+  </div>
+</div>
+<div class="widget-content">
+  <div class="row row-size margin_from_top">
+    <div class="span2 offset1" style="text-align:left">
       <span style="font-weight:bold">Price</span>
     </div>
     <div class="span2">

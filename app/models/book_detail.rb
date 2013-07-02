@@ -19,6 +19,8 @@ class BookDetail < ActiveRecord::Base
            :order => 'title'
   end
 
+  CONDITION = {'New' => 1, 'Good' => 2, 'Very Good' => 3, 'Acceptable' => 4}
+
   #use scope to search book result from db
   scope :book_search_by_keyword, lambda {|keyword|
     self.where(
