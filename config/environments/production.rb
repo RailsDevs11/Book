@@ -47,7 +47,7 @@ Book::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-  config.assets.precompile += %w(public_app.css public_application.js dashboard_application.js dashboard_application.css frontend_application.css frontend_application.js simpliq_application.css simpliq_application.js )
+  config.assets.precompile += %w(dashboard_application.js dashboard_application.css frontend_application.css frontend_application.js simpliq_application.css simpliq_application.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -68,7 +68,7 @@ Book::Application.configure do
     :port           => '587',
     :user_name      => 'app16201283@heroku.com',
     :password       => '4bxa7hgp',
-    :domain         => 'book-post.herokuapp.com',
+    :domain         => 'heroku.com',
     :authentication => :plain,
     :enable_starttls_auto => true
   }

@@ -10,13 +10,13 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require bootstrap.min 
 //= require jquery-1.9.1.min
-//= require jquery-migrate-1.0.0.min	
-//= require jquery-ui-1.10.3.custom.min	
-//= require jquery.ui.touch-punch	
-//= require modernizr	
-//= require bootstrap.min	
-//= require jquery.cookie	
+//= require jquery-migrate-1.0.0.min  
+//= require jquery-ui-1.10.3.custom.min 
+//= require jquery.ui.touch-punch 
+//= require modernizr 
+//= require jquery.cookie 
 //= require fullcalendar.min
 //= require jquery.dataTables.min
 //= require excanvas
@@ -27,25 +27,25 @@
 //= require jquery.flot.time
 
 //= require gauge.min
-//= require jquery.chosen.min	
-//= require jquery.uniform.min		
-//= require jquery.cleditor.min	
-//= require jquery.noty	
-//= require jquery.elfinder.min	
-//= require jquery.raty.min	
-//= require jquery.iphone.toggle	
-//= require jquery.uploadify-3.1.min	
-//= require jquery.gritter.min	
-//= require jquery.imagesloaded	
-//= require jquery.masonry.min	
-//= require jquery.knob.modified	
-//= require jquery.sparkline.min	
-//= require counter.min	
-//= require justgage.1.0.1.min	
-//= require jquery.autosize.min	
+//= require jquery.chosen.min 
+//= require jquery.uniform.min    
+//= require jquery.cleditor.min 
+//= require jquery.noty 
+//= require jquery.elfinder.min 
+//= require jquery.raty.min 
+//= require jquery.iphone.toggle  
+//= require jquery.uploadify-3.1.min  
+//= require jquery.gritter.min  
+//= require jquery.imagesloaded 
+//= require jquery.masonry.min  
+//= require jquery.knob.modified  
+//= require jquery.sparkline.min  
+//= require counter.min 
+//= require justgage.1.0.1.min  
+//= require jquery.autosize.min 
 //= require retina
 //= require jquery.placeholder.min
 //= require wizard.min
-//= require core.min	
-//= require charts.min	
+//= require core.min  
+//= require charts.min  
 //= require custom.min
