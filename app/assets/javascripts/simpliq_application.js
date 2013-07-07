@@ -15,7 +15,7 @@
 //= require jquery-ui-1.10.3.custom.min 
 //= require jquery.ui.touch-punch 
 //= require modernizr 
-//= require bootstrap.min 
+//= require bootstrap 
 //= require jquery.cookie
 //= require fullcalendar.min
 //= require jquery.dataTables.min
