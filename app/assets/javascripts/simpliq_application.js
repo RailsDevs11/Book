@@ -41,7 +41,6 @@
 //= require jquery.knob.modified  
 //= require jquery.sparkline.min  
 //= require counter.min
-//= require raphael.2.1.0.min 
 //= require justgage.1.0.1.min  
 //= require jquery.autosize.min 
 //= require retina
@@ -50,3 +49,4 @@
 //= require core.min  
 //= require charts.min  
 //= require custom.min
+//= require raphael.2.1.0.min 
