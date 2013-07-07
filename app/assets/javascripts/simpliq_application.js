@@ -10,17 +10,17 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require bootstrap.min 
 //= require jquery-1.9.1.min
 //= require jquery-migrate-1.0.0.min  
 //= require jquery-ui-1.10.3.custom.min 
 //= require jquery.ui.touch-punch 
 //= require modernizr 
-//= require jquery.cookie 
+//= require bootstrap 
 //= require fullcalendar.min
+//= require jquery.cookie 
 //= require jquery.dataTables.min
-//= require excanvas
-//= require jquery.flot
+//= require excanvas.min
+//= require jquery.flot.min
 //= require jquery.flot.pie
 //= require jquery.flot.stack
 //= require jquery.flot.resize.min
