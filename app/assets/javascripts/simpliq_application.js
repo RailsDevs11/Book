@@ -15,9 +15,9 @@
 //= require jquery-ui-1.10.3.custom.min 
 //= require jquery.ui.touch-punch 
 //= require modernizr 
-//= require bootstrap 
+//= require bootstrap.min 
+//= require jquery.cookie
 //= require fullcalendar.min
-//= require jquery.cookie 
 //= require jquery.dataTables.min
 //= require excanvas.min
 //= require jquery.flot.min
@@ -40,7 +40,8 @@
 //= require jquery.masonry.min  
 //= require jquery.knob.modified  
 //= require jquery.sparkline.min  
-//= require counter.min 
+//= require counter.min
+//= require raphael.2.1.0.min 
 //= require justgage.1.0.1.min  
 //= require jquery.autosize.min 
 //= require retina

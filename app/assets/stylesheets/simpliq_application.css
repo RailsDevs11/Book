@@ -9,8 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require style-responsive.min
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
+ *= require style.min
  *= require retina
+ *= require style-responsive.min
  *= require elfinder.min
  *= require elfinder.theme
  *= require font-awesome-ie7.min
@@ -25,6 +28,5 @@
  *= require jquery.noty
  *= require jquery-ui-1.10.3.custom
  *= require noty_theme_default
- *= require style.min
  *= require uploadify
  */
