@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Book::Application.load_tasks
+Cat::Application.load_tasks
