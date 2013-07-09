@@ -26,7 +26,7 @@ class Public::BookDetailsController < Public::BaseController
       @book_detail.update_attributes(:status => true)
       flash[:notice] = "Book was successfully buy"
       BookDetailMailer.notification_email(current_user)
-      BookDetailMailer.inform_email(@book_detail)
+      BookDetailMailer.purchased_book(@book_detail)
     else
       flash[:notice] = "Please signin or signup before continue"
     end

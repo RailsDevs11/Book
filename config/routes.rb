@@ -1,4 +1,4 @@
-Cat::Application.routes.draw do
+Book::Application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "user_registrations"}
  

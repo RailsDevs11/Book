@@ -39,7 +39,7 @@ class BookDetail < ActiveRecord::Base
     notifies = Notify.where("lower(isbn_number) = ? AND end_date >= ?", self.isbn_number, self.created_at)
     if !notifies.blank?
       notifies.each do |notify|
-        BookDetailMailer.user_notify_email(notify.user)
+        BookDetailMailer.notify_to_purchase_book(notify.user)
       end  
     end  
   end
