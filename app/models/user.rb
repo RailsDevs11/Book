@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-    :validatable, :token_authenticatable, :authentication_keys => [:login]
+    :validatable, :token_authenticatable, :confirmable, :authentication_keys => [:login]
     #:recoverable, :rememberable, :trackable, , :confirmable
 
   #Define attribute accessor
