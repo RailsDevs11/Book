@@ -9,19 +9,20 @@ class BookDetailMailer < ActionMailer::Base
     }).deliver
   end
 
-  def inform_email(book_obj)
+  def purchased_book(book_obj)
     @user = book_obj.user
+    @book = book_obj
     mail({
       :to => @user.email,
-      :subject => "Inform Email"
+      :subject => "LccHub: purchased book"
     }).deliver    
   end
 
-  def user_notify_email(user)
+  def notify_to_purchase_book(user)
     @user = user
     mail({
       :to => @user.email,
-      :subject => "Notify Email"
+      :subject => "Book is available"
     }).deliver    
   end
 
@@ -29,7 +30,7 @@ class BookDetailMailer < ActionMailer::Base
     @user = book_detail.user
     mail({
       :to => @user.email,
-      :subject => "Notify to book owner"
+      :subject => "Need to buy book"
     }).deliver    
   end
 
