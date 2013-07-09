@@ -15,41 +15,25 @@
       <div class="nav-no-collapse header-nav">
         <ul class="nav pull-right">
           <li class="dropdown hidden-phone">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-warning-sign"></i>
-            </a>
-            <ul class="dropdown-menu notifications">
-              <li class="dropdown-menu-title">
-                <span>You have 1 notifications</span>
-              </li> 
-              <li class="warning">
-                <a href="#">
-                  <span class="icon red"><i class="icon-user"></i></span>
-                  <span class="message">User deleted account</span>
-                  <span class="time">2 hour</span> 
-                </a>
-              </li>
-              <li class="dropdown-menu-sub-footer">
-                <a>View all notifications</a>
-              </li> 
-            </ul>
+            <li><a class="btn dropdown-toggle", href="<%= user_profile_path %>"><i class="icon-user"></i> Profile</a></li>
+          </li>
+          <li class="dropdown hidden-phone">
+            <li><a class="btn dropdown-toggle", href="<%= edit_user_registration_path %>"><i class="icon-cog"></i> Setting</a></li>
           </li>
           <!-- start: User Dropdown -->
           <li class="dropdown">
-            <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="btn account dropdown-toggle" href="#">
               <div class="avatar"><%= image_tag(current_user.profile_icon) %></div>
               <div class="user">
-                <span class="hello">Welcome!</span>
-                <span class="name"><%= current_user.full_name if current_user.present? %></span>
+                <span class="hello">
+                  <%= link_to 'Welcome!', destroy_user_session_path, :method => "delete", :class=>'delete_class' %>
+                </span>
+                <span class="name">
+                  <% user_name = current_user.full_name if current_user.present?%>
+                  <%= link_to user_name, destroy_user_session_path, :method => "delete" %>
+                </span>
               </div>
             </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-menu-title">
-              </li>
-              <li><a href="<%= user_profile_path %>"><i class="icon-user"></i> Profile</a></li>
-              <li><a href="<%= edit_user_registration_path %>"><i class="icon-cog"></i> Settings</a></li>
-              <li><%= link_to '<i class="icon-off"></i><span class="text"> Logout</span>'.html_safe, destroy_user_session_path, :method => :delete %></li>
-            </ul>
           </li>
           <!-- end: User Dropdown -->
         </ul>
@@ -59,3 +43,14 @@
   </div>
 </div>
 <!-- start: Header -->
+<style>
+  .navbar-inner a {
+    color: white;
+    text-decoration: none;
+    line-height: 22px;
+  }
+  .avatar{
+     margin-top: -14px;
+     cursor:default;
+  }
+</style>
