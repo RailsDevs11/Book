@@ -67,8 +67,4 @@ class User < ActiveRecord::Base
     authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
   end
   
-  def recent_books
-    self.book_details.limit(5).order('created_at DESC')
-  end
-
 end

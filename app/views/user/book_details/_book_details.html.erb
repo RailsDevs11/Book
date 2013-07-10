@@ -1,7 +1,7 @@
 <% unless book_details.blank? %>
   <% book_details.each do |book_detail| %>
     <tr>
-      <td><%= book_detail.title %></td>
+      <td><%= truncate_string(book_detail.title, 60) %></td>
       <td class="center"><%= book_detail.author %></td>
       <td class="center">
         <%= image_tag(book_detail.image_link, :style => 'height: 38px;') if book_detail.image_link.present? %>

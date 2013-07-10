@@ -44,7 +44,7 @@ class User::BookDetailsController < User::BaseController
       if @book_detail.save
         format.html { 
           redirect_to user_book_detail_path(@book_detail), 
-          notice: 'Book detail was successfully created.' 
+            notice: 'Book detail was successfully created.' 
         }
       else
         format.html { 
@@ -61,7 +61,7 @@ class User::BookDetailsController < User::BaseController
       if @book_detail.update_attributes(params[:book_detail])
         format.html { 
           redirect_to user_book_detail_path, 
-          notice: 'Book detail was successfully updated.' 
+            notice: 'Book detail was successfully updated.' 
         }
       else
         format.html { 
@@ -78,7 +78,7 @@ class User::BookDetailsController < User::BaseController
     respond_to do |format|
       format.html { 
         redirect_to user_book_details_path, 
-        notice: 'Book detail was successfully deleted.' 
+          notice: 'Book detail was successfully deleted.' 
       }
     end
   end

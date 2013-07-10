@@ -11,7 +11,10 @@ class User::ProfilesController < User::BaseController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Your account was successfully deleted.'  }
+      format.html { 
+        redirect_to root_path, 
+          notice: 'Your account was successfully deleted.'  
+      }
     end
   end
 

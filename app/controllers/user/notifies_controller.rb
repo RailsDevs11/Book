@@ -24,7 +24,8 @@ class User::NotifiesController < User::BaseController
     respond_to do |format|
       if @notify.save
         format.html { 
-          redirect_to user_notifies_path, notice: 'Notify was successfully created.' 
+          redirect_to user_notifies_path, 
+            notice: 'Notify was successfully created.' 
         }
       else
         format.html { 
@@ -40,7 +41,8 @@ class User::NotifiesController < User::BaseController
     respond_to do |format|
       if @notify.update_attributes(params[:notify])
         format.html { 
-          redirect_to user_notifies_path, notice: 'Notify was successfully updated.' 
+          redirect_to user_notifies_path, 
+            notice: 'Notify was successfully updated.' 
         }
       else
         format.html { 
@@ -56,7 +58,8 @@ class User::NotifiesController < User::BaseController
 
     respond_to do |format|
       format.html { 
-        redirect_to user_notifies_path, notice: 'Notify was successfully deleted.' 
+        redirect_to user_notifies_path, 
+          notice: 'Notify was successfully deleted.' 
       }
     end
   end
